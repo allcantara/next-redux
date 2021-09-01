@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import auth from './features/auth'
+import todos from './features/todos'
 
 const store = configureStore({
   reducer: {
-    auth
-  }
+    todos
+  },
 })
 
 export type RootState = ReturnType<typeof store.getState>
