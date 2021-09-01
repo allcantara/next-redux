@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { addTodo } from '../../redux/features/todos'
+import { addTodo, addTodoAsync } from '../../redux/features/todos'
 import { useAppDispatch } from '../../redux/hooks'
 
 const Form = () => {
@@ -13,6 +13,12 @@ const Form = () => {
     setText('')
   }, [text])
 
+  const handleAddAsync = useCallback(() => {
+    console.log(text)
+    dispatch(addTodoAsync(text))
+    setText('')
+  }, [text])
+
   return (
     <div>
       <input
@@ -21,7 +27,10 @@ const Form = () => {
         onChange={(e) => setText(e.target.value)}
       />
       <button type="submit" onClick={() => handleAdd()}>
-        Adicionar
+        Add
+      </button>
+      <button type="submit" onClick={() => handleAddAsync()}>
+        AddAsync
       </button>
     </div>
   )

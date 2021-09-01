@@ -7,7 +7,7 @@ const add = (state: ITodo[], action: PayloadAction<string>) => {
     complete: false,
     text: action.payload,
   }
-  console.log(todo)
+
   return [todo, ...state]
 }
 
